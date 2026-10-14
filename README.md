@@ -6,12 +6,13 @@
 </p>
 
 <p align="center">
-  <img alt="Python" src="https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white">
-  <img alt="LangGraph" src="https://img.shields.io/badge/LangGraph-1.2-1C3C3C">
-  <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-1.41-FF4B4B?logo=streamlit&logoColor=white">
-  <img alt="Chroma" src="https://img.shields.io/badge/RAG-Chroma%20%2B%20fastembed-5A4FCF">
-  <img alt="Tests" src="https://img.shields.io/badge/tests-61%20passing-3FB950">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white">
+  <img alt="LangGraph" src="https://img.shields.io/badge/LangGraph-1.2-1C3C3C?style=flat-square">
+  <img alt="Streamlit" src="https://img.shields.io/badge/Streamlit-1.41+-FF4B4B?style=flat-square&logo=streamlit&logoColor=white">
+  <img alt="Chroma" src="https://img.shields.io/badge/RAG-Chroma%20%2B%20fastembed-5A4FCF?style=flat-square">
+  <img alt="Tavily" src="https://img.shields.io/badge/web%20search-Tavily-0F172A?style=flat-square">
+  <img alt="Tests" src="https://img.shields.io/badge/tests-61%20passing-3FB950?style=flat-square">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
 </p>
 
 ![Cited report](assets/screenshots/report.png)
@@ -72,6 +73,36 @@ flowchart TD
     E --> F([Report + sources + declared limits])
 ```
 
+### Workflow, from question to report
+
+The same graph seen as a sequence. The only branch point is the coverage gate, and it is
+the one node that contains no model call.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor U as User
+    participant P as plan
+    participant S as search
+    participant G as coverage gate
+    participant Y as synthesize
+
+    U->>P: question
+    P-->>S: 2-6 self-contained sub-questions
+    loop bounded by MAX_SEARCH_ROUNDS
+        S->>S: local PDF corpus, then web
+        S-->>G: relevance-filtered, de-duplicated sources
+        G->>G: enough sources? named terms present?
+        alt a gap remains and a round is left
+            G-->>S: re-search only the gaps, at greater depth
+        else covered, or rounds exhausted
+            G-->>Y: sources plus the measured gaps
+        end
+    end
+    Y->>Y: write report, then validate every [n] citation
+    Y-->>U: report, numbered sources, declared limits
+```
+
 ### Project structure
 
 ```text
@@ -86,7 +117,6 @@ langgraph-ai-agent/
 │   ├── coverage.py     # the two-condition gate and the router (no LLM)
 │   ├── synthesis.py    # cited report, citation validation, limits section
 │   ├── llm.py          # provider seam: role -> model
-│   ├── models.py       # runtime discovery of usable Groq models
 │   └── state.py        # shared graph state
 ├── evaluation/
 │   ├── dataset.py      # the fixed question set and labelled gold pages
@@ -94,10 +124,9 @@ langgraph-ai-agent/
 │   ├── run.py          # the runner; writes measured results
 │   └── results/        # every run, kept
 ├── tests/
-│   ├── test_research.py
-│   ├── test_documents.py
-│   ├── test_metrics.py
-│   └── test_tools.py
+│   ├── test_research.py   # planner, coverage gate, routing, synthesis
+│   ├── test_documents.py  # chunking, hashing, local relevance floor
+│   └── test_metrics.py    # the evaluation metrics themselves
 ├── assets/
 │   └── screenshots/
 ├── .env.example
@@ -117,7 +146,7 @@ langgraph-ai-agent/
 Open PowerShell in the folder where you keep your projects.
 
 ```powershell
-git clone https://github.com/YOUR_USERNAME/langgraph-ai-agent.git
+git clone https://github.com/sofienkrir/langgraph-ai-agent.git
 cd langgraph-ai-agent
 
 python -m venv .venv
@@ -230,7 +259,7 @@ python -m evaluation.run --pipeline    # the whole graph - spends API calls
 python -m evaluation.run --all
 ```
 
-Results are written to `evaluation/results/` as JSON plus a Markdown summary, and are kept in the repository. Every number below came from a run; none is hand-written.
+Results are written to `evaluation/results/` as JSON plus a Markdown summary, and are kept in the repository. Every number below came from a run; none is hand-written — the full report of the latest one is [`evaluation/results/latest.md`](evaluation/results/latest.md).
 
 ### Measured, on Groq
 
@@ -262,3 +291,17 @@ Two thresholds in the code were chosen by sweep rather than intuition, and both 
 ## License
 
 MIT — see [LICENSE](LICENSE).
+
+---
+
+## Author
+
+**Sofien Krir**, Data Science & AI Engineer (TEK-UP University, 2026).
+
+See also my final-year project, a multi-source RAG platform built at Attijari Bank Tunisia:
+[**AI-Augmented Banking Customer Advisor**](https://github.com/sofienkrir/Conseiller-Client-le-Augment-par-Intelligence-Artificielle_PFE).
+
+[![GitHub](https://img.shields.io/badge/GitHub-sofienkrir-181717?style=flat-square&logo=github)](https://github.com/sofienkrir)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Sofien_Krir-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/sofien-krir-28b34b34b)
+[![Portfolio](https://img.shields.io/badge/Portfolio-visit-0F172A?style=flat-square&logo=vercel&logoColor=white)](https://portfolio-data-science-ia-sof.vercel.app)
+[![Email](https://img.shields.io/badge/Email-sofienkrir11%40gmail.com-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:sofienkrir11@gmail.com)
