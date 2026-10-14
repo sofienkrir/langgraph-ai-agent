@@ -1,0 +1,142 @@
+{
+  "run_at": "2026-10-14T14:37:01+00:00",
+  "provider": "groq",
+  "retrieval": {
+    "k": 4,
+    "cases": [
+      {
+        "id": "r1",
+        "question": "Quel jeu de données a été utilisé pour entraîner les modèles ?",
+        "gold_pages": [
+          6,
+          7
+        ],
+        "retrieved_pages": [
+          7,
+          7,
+          7,
+          20
+        ],
+        "recall_at_k": 0.5,
+        "hit": true,
+        "top_score": 0.528
+      },
+      {
+        "id": "r2",
+        "question": "Quelle bibliothèque de calcul quantique est utilisée pour implémenter le modèle ?",
+        "gold_pages": [
+          8
+        ],
+        "retrieved_pages": [
+          16,
+          18,
+          8,
+          9
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.684
+      },
+      {
+        "id": "r3",
+        "question": "Quelle est la complexité algorithmique du prétraitement classique des données ?",
+        "gold_pages": [
+          10
+        ],
+        "retrieved_pages": [
+          10,
+          9,
+          10,
+          7
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.58
+      },
+      {
+        "id": "r4",
+        "question": "À quelle vitesse le modèle QLSTM converge-t-il pendant l'entraînement ?",
+        "gold_pages": [
+          12,
+          13
+        ],
+        "retrieved_pages": [
+          11,
+          13,
+          10,
+          8
+        ],
+        "recall_at_k": 0.5,
+        "hit": true,
+        "top_score": 0.695
+      },
+      {
+        "id": "r5",
+        "question": "Quel est le temps d'évaluation par époque des deux modèles ?",
+        "gold_pages": [
+          14,
+          15
+        ],
+        "retrieved_pages": [
+          14,
+          20,
+          14,
+          7
+        ],
+        "recall_at_k": 0.5,
+        "hit": true,
+        "top_score": 0.627
+      },
+      {
+        "id": "r6",
+        "question": "Quelles sont les équations mathématiques de la cellule LSTM classique ?",
+        "gold_pages": [
+          18
+        ],
+        "retrieved_pages": [
+          17,
+          18,
+          18,
+          8
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.678
+      },
+      {
+        "id": "r7",
+        "question": "Comment est structuré le circuit quantique variationnel du QLSTM ?",
+        "gold_pages": [
+          19
+        ],
+        "retrieved_pages": [
+          8,
+          18,
+          8,
+          8
+        ],
+        "recall_at_k": 0.0,
+        "hit": false,
+        "top_score": 0.712
+      },
+      {
+        "id": "r8",
+        "question": "Quels tests statistiques et quelle p-value sont utilisés pour comparer les modèles ?",
+        "gold_pages": [
+          20
+        ],
+        "retrieved_pages": [
+          20,
+          20,
+          11,
+          11
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.617
+      }
+    ],
+    "mean_recall_at_k": 0.6875,
+    "hit_rate": 0.875
+  }
+}

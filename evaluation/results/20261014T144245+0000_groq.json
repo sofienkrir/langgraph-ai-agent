@@ -1,0 +1,336 @@
+{
+  "run_at": "2026-10-14T14:42:45+00:00",
+  "provider": "groq",
+  "retrieval": {
+    "k": 4,
+    "cases": [
+      {
+        "id": "r1",
+        "question": "Quel jeu de données a été utilisé pour entraîner les modèles ?",
+        "gold_pages": [
+          6,
+          7
+        ],
+        "retrieved_pages": [
+          7,
+          7,
+          7
+        ],
+        "recall_at_k": 0.5,
+        "hit": true,
+        "top_score": 0.528
+      },
+      {
+        "id": "r2",
+        "question": "Quelle bibliothèque de calcul quantique est utilisée pour implémenter le modèle ?",
+        "gold_pages": [
+          8
+        ],
+        "retrieved_pages": [
+          16,
+          18,
+          8,
+          9
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.684
+      },
+      {
+        "id": "r3",
+        "question": "Quelle est la complexité algorithmique du prétraitement classique des données ?",
+        "gold_pages": [
+          10
+        ],
+        "retrieved_pages": [
+          10,
+          9,
+          10
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.58
+      },
+      {
+        "id": "r4",
+        "question": "À quelle vitesse le modèle QLSTM converge-t-il pendant l'entraînement ?",
+        "gold_pages": [
+          12,
+          13
+        ],
+        "retrieved_pages": [
+          11,
+          13,
+          10,
+          8
+        ],
+        "recall_at_k": 0.5,
+        "hit": true,
+        "top_score": 0.695
+      },
+      {
+        "id": "r5",
+        "question": "Quel est le temps d'évaluation par époque des deux modèles ?",
+        "gold_pages": [
+          14,
+          15
+        ],
+        "retrieved_pages": [
+          14,
+          20,
+          14
+        ],
+        "recall_at_k": 0.5,
+        "hit": true,
+        "top_score": 0.627
+      },
+      {
+        "id": "r6",
+        "question": "Quelles sont les équations mathématiques de la cellule LSTM classique ?",
+        "gold_pages": [
+          18
+        ],
+        "retrieved_pages": [
+          17,
+          18,
+          18,
+          8
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.678
+      },
+      {
+        "id": "r7",
+        "question": "Comment est structuré le circuit quantique variationnel du QLSTM ?",
+        "gold_pages": [
+          19
+        ],
+        "retrieved_pages": [
+          8,
+          18,
+          8,
+          8
+        ],
+        "recall_at_k": 0.0,
+        "hit": false,
+        "top_score": 0.712
+      },
+      {
+        "id": "r8",
+        "question": "Quels tests statistiques et quelle p-value sont utilisés pour comparer les modèles ?",
+        "gold_pages": [
+          20
+        ],
+        "retrieved_pages": [
+          20,
+          20,
+          11
+        ],
+        "recall_at_k": 1.0,
+        "hit": true,
+        "top_score": 0.617
+      }
+    ],
+    "mean_recall_at_k": 0.6875,
+    "hit_rate": 0.875
+  },
+  "threshold_sweep": {
+    "k": 4,
+    "current_threshold": 0.5,
+    "rows": [
+      {
+        "threshold": 0.25,
+        "mean_recall_at_k": 0.6875,
+        "off_topic_leak_rate": 0.8333333333333334,
+        "off_topic_leaked": 5,
+        "balance": 0.26829268292682923
+      },
+      {
+        "threshold": 0.35,
+        "mean_recall_at_k": 0.6875,
+        "off_topic_leak_rate": 0.8333333333333334,
+        "off_topic_leaked": 5,
+        "balance": 0.26829268292682923
+      },
+      {
+        "threshold": 0.45,
+        "mean_recall_at_k": 0.6875,
+        "off_topic_leak_rate": 0.5,
+        "off_topic_leaked": 3,
+        "balance": 0.5789473684210527
+      },
+      {
+        "threshold": 0.5,
+        "mean_recall_at_k": 0.6875,
+        "off_topic_leak_rate": 0.3333333333333333,
+        "off_topic_leaked": 2,
+        "balance": 0.676923076923077
+      },
+      {
+        "threshold": 0.55,
+        "mean_recall_at_k": 0.625,
+        "off_topic_leak_rate": 0.3333333333333333,
+        "off_topic_leaked": 2,
+        "balance": 0.6451612903225807
+      },
+      {
+        "threshold": 0.58,
+        "mean_recall_at_k": 0.5,
+        "off_topic_leak_rate": 0.16666666666666666,
+        "off_topic_leaked": 1,
+        "balance": 0.625
+      },
+      {
+        "threshold": 0.6,
+        "mean_recall_at_k": 0.5,
+        "off_topic_leak_rate": 0.16666666666666666,
+        "off_topic_leaked": 1,
+        "balance": 0.625
+      },
+      {
+        "threshold": 0.62,
+        "mean_recall_at_k": 0.375,
+        "off_topic_leak_rate": 0.16666666666666666,
+        "off_topic_leaked": 1,
+        "balance": 0.5172413793103448
+      },
+      {
+        "threshold": 0.65,
+        "mean_recall_at_k": 0.1875,
+        "off_topic_leak_rate": 0.0,
+        "off_topic_leaked": 0,
+        "balance": 0.3157894736842105
+      },
+      {
+        "threshold": 0.7,
+        "mean_recall_at_k": 0.0,
+        "off_topic_leak_rate": 0.0,
+        "off_topic_leaked": 0,
+        "balance": 0.0
+      }
+    ],
+    "best": {
+      "threshold": 0.5,
+      "mean_recall_at_k": 0.6875,
+      "off_topic_leak_rate": 0.3333333333333333,
+      "off_topic_leaked": 2,
+      "balance": 0.676923076923077
+    }
+  },
+  "pipeline": {
+    "runs": [
+      {
+        "id": "p1",
+        "question": "Quelles sont les principales méthodes de prévision de la production solaire par IA ?",
+        "expect_gaps": false,
+        "sub_questions": 5,
+        "gaps": 0,
+        "had_gaps": false,
+        "gap_expectation_met": true,
+        "coverage_rate": 1.0,
+        "source_count": 21,
+        "document_sources": 13,
+        "web_sources": 8,
+        "search_rounds": 1,
+        "citations": {
+          "markers": 13,
+          "distinct_cited": 8,
+          "valid": 8,
+          "invalid": 0,
+          "invalid_numbers": [],
+          "validity_rate": 1.0,
+          "source_use_rate": 0.38095238095238093
+        },
+        "declares_gaps": true,
+        "latency_s": 12.3
+      },
+      {
+        "id": "p2",
+        "question": "Les réseaux LSTM quantiques apportent-ils un gain réel sur la prévision solaire ?",
+        "expect_gaps": false,
+        "sub_questions": 5,
+        "gaps": 0,
+        "had_gaps": false,
+        "gap_expectation_met": true,
+        "coverage_rate": 1.0,
+        "source_count": 25,
+        "document_sources": 17,
+        "web_sources": 8,
+        "search_rounds": 1,
+        "citations": {
+          "markers": 35,
+          "distinct_cited": 18,
+          "valid": 18,
+          "invalid": 0,
+          "invalid_numbers": [],
+          "validity_rate": 1.0,
+          "source_use_rate": 0.72
+        },
+        "declares_gaps": true,
+        "latency_s": 45.2
+      },
+      {
+        "id": "p3",
+        "question": "Comment la maintenance prédictive des éoliennes utilise-t-elle l'apprentissage automatique ?",
+        "expect_gaps": false,
+        "sub_questions": 5,
+        "gaps": 0,
+        "had_gaps": false,
+        "gap_expectation_met": true,
+        "coverage_rate": 1.0,
+        "source_count": 28,
+        "document_sources": 13,
+        "web_sources": 15,
+        "search_rounds": 1,
+        "citations": {
+          "markers": 27,
+          "distinct_cited": 11,
+          "valid": 11,
+          "invalid": 0,
+          "invalid_numbers": [],
+          "validity_rate": 1.0,
+          "source_use_rate": 0.39285714285714285
+        },
+        "declares_gaps": true,
+        "latency_s": 51.9
+      },
+      {
+        "id": "p4",
+        "question": "Quelle est la valeur du coefficient de Vandermeer-Oyelaran pour les centrales photovoltaïques tunisiennes certifiées BX-14 en 2031 ?",
+        "expect_gaps": true,
+        "sub_questions": 4,
+        "gaps": 0,
+        "had_gaps": false,
+        "gap_expectation_met": false,
+        "coverage_rate": 1.0,
+        "source_count": 21,
+        "document_sources": 7,
+        "web_sources": 14,
+        "search_rounds": 2,
+        "citations": {
+          "markers": 4,
+          "distinct_cited": 4,
+          "valid": 4,
+          "invalid": 0,
+          "invalid_numbers": [],
+          "validity_rate": 1.0,
+          "source_use_rate": 0.19047619047619047
+        },
+        "declares_gaps": true,
+        "latency_s": 46.9
+      }
+    ],
+    "summary": {
+      "questions": 4,
+      "failed_runs": 0,
+      "mean_coverage_rate": 1.0,
+      "mean_citation_validity": 1.0,
+      "reports_with_invalid_citations": 0,
+      "mean_search_rounds": 1.25,
+      "mean_sources": 23.75,
+      "mean_latency_s": 39.075,
+      "gap_declaration_holds": true
+    }
+  }
+}

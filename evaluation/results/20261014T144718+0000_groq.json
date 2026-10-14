@@ -1,0 +1,67 @@
+{
+  "run_at": "2026-10-14T14:47:18+00:00",
+  "provider": "groq",
+  "grounding": {
+    "rows": [
+      {
+        "id": "p1",
+        "answerable": true,
+        "question": "Quelles sont les principales méthodes de prévision de la production so",
+        "scores": [
+          0.778,
+          0.5,
+          0.833,
+          0.692,
+          0.167
+        ],
+        "min": 0.167,
+        "mean": 0.594
+      },
+      {
+        "id": "p2",
+        "answerable": true,
+        "question": "Les réseaux LSTM quantiques apportent-ils un gain réel sur la prévisio",
+        "scores": [
+          0.65,
+          0.133,
+          0.444,
+          0.35,
+          0.053
+        ],
+        "min": 0.053,
+        "mean": 0.32599999999999996
+      },
+      {
+        "id": "p3",
+        "answerable": true,
+        "question": "Comment la maintenance prédictive des éoliennes utilise-t-elle l'appre",
+        "scores": [
+          0.769,
+          0.571,
+          0.6,
+          0.8,
+          0.438
+        ],
+        "min": 0.438,
+        "mean": 0.6356
+      },
+      {
+        "id": "p4",
+        "answerable": false,
+        "question": "Quelle est la valeur du coefficient de Vandermeer-Oyelaran pour les ce",
+        "scores": [
+          0.571,
+          0.714,
+          0.0,
+          0.4
+        ],
+        "min": 0.0,
+        "mean": 0.42125
+      }
+    ],
+    "lowest_answerable_grounding": 0.053,
+    "highest_unanswerable_grounding": 0.421,
+    "separable": false,
+    "current_threshold": 0.6
+  }
+}
